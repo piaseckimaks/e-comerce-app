@@ -14,8 +14,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import Container from '@material-ui/core/Container';
+import SignIn from './Content/SignIn';
+import SignUp from './Content/SignUp';
+import MainContent from './Content/MainContent';
+
 
 const drawerWidth = 200;
 
@@ -40,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     fontVariant: 'small-caps',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    fontFamily: `'Fredoka One', cursive`
   },
   hide: {
     display: 'none',
@@ -61,8 +65,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
   },
   content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(1),
+    width: '100%',
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -120,7 +124,7 @@ export default function PersistentDrawerRight() {
         })}
       >
         <Toolbar>
-          <Typography  variant="h3" className={classes.title}>
+          <Typography  variant="h2" className={classes.title}>
             <span className={classes.logo} onClick={handleClick}>football world</span>
           </Typography>
           
@@ -150,11 +154,10 @@ export default function PersistentDrawerRight() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
 
-          {mainContent === 'FOOTBALL WORLD' ? 'Main Content' : ''}
-          {mainContent === 'Sign in' ? <SignIn /> : ''}
-          {mainContent === 'Sign up' ? <SignUp /> : ''}
+          {mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
+          {mainContent === 'Already have an account? Sign in' || mainContent === 'Sign in' ? <SignIn handleClick={handleClick}/> : ''}
+          {mainContent === `Don't have an account? Sign Up`|| mainContent === 'Sign up' ? <SignUp handleClick={handleClick}/> : ''}
           {mainContent === 'Cart' ? 'Cart Content' : ''}
           {mainContent === 'Boots' ? 'Boots Content' : ''}
           {mainContent === 'Clothes' ? 'Clothes Content' : ''}
@@ -164,7 +167,6 @@ export default function PersistentDrawerRight() {
           {mainContent === 'About Us' ? 'About Us Content' : ''}
           {mainContent === 'Contact' ? 'Contact Content' : ''}
 
-        </Typography>
       </main>
       <Drawer
         className={classes.drawer}
