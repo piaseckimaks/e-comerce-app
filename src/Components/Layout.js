@@ -14,7 +14,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Container from '@material-ui/core/Container';
 import SignIn from './Content/SignIn';
 import SignUp from './Content/SignUp';
 import MainContent from './Content/MainContent';
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 0,
   },
   listItemText: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   logo: {
     cursor: 'pointer',
