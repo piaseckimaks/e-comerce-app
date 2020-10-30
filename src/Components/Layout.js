@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,6 +18,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import SignIn from './Content/SignIn';
 import SignUp from './Content/SignUp';
 import MainContent from './Content/MainContent';
+import Cart from './Cart';
+import BootsContent from './Content/BootsContent'
 
 
 const drawerWidth = 200;
@@ -98,6 +101,7 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [mainContent, setMainContent] = React.useState('FOOTBALL WORLD');
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
 
   const handleDrawerOpen = () => {
@@ -110,8 +114,18 @@ export default function PersistentDrawerRight() {
 
   const handleClick = e => {
     setMainContent(e.target.innerText);
+    console.log(e.target.innerText);
     setOpen(false);
   };
+
+  const handleClickCart = e => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
 
   return (
     <div className={classes.root}>
@@ -128,11 +142,27 @@ export default function PersistentDrawerRight() {
           </Typography>
           
           <List className={classes.appBarBtns}>
-            {['Sign in', 'Sign up', 'Cart'].map((el) => (
-              <ListItem onClick={handleClick} button key={el}>
-                <ListItemText className={classes.listItemText} primary={el} />
-              </ListItem>
+            {['Sign in', 'Sign up'].map((el, index) => (
+              <Button 
+                aria-controls="customized-menu" 
+                aria-haspopup="true"
+                variant="contained"
+                color="primary"
+                onClick={handleClick}
+                key={index}
+              >
+                {el}
+              </Button>
             ))}
+            <Button
+              aria-controls="customized-menu"
+              aria-haspopup="true"
+              variant="contained"
+              color="primary"
+              onClick={handleClickCart}
+            >
+              Cart
+            </Button>
           </List>
 
 
@@ -153,12 +183,12 @@ export default function PersistentDrawerRight() {
         })}
       >
         <div className={classes.drawerHeader} />
+        <Cart handleClose={handleClose} anchorEl={anchorEl}/>
 
           {mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
-          {mainContent === 'Already have an account? Sign in' || mainContent === 'Sign in' ? <SignIn handleClick={handleClick}/> : ''}
-          {mainContent === `Don't have an account? Sign Up`|| mainContent === 'Sign up' ? <SignUp handleClick={handleClick}/> : ''}
-          {mainContent === 'Cart' ? 'Cart Content' : ''}
-          {mainContent === 'Boots' ? 'Boots Content' : ''}
+          {mainContent === 'Already have an account? Sign in' || mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
+          {mainContent === `Don't have an account? Sign Up`|| mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
+          {mainContent === 'Boots' ? <BootsContent /> : ''}
           {mainContent === 'Clothes' ? 'Clothes Content' : ''}
           {mainContent === 'Balls' ? 'Balls Content' : ''}
           {mainContent === 'Equipment' ? 'Equipment Content' : ''}
