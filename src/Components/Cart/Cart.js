@@ -29,7 +29,7 @@ const cartContent = [
 
 ]
 
-export default function Cart() {
+export default function Cart(props) {
   const [totalPrice, setTotalPrice] = React.useState(0);
   const [cartElements, setCartElements] = React.useState(cartContent);
 
@@ -105,6 +105,7 @@ export default function Cart() {
           aria-haspopup="true"
           variant="contained"
           color="white"
+          onClick={props.handleClick}
         >
           Proceed
         </Button>

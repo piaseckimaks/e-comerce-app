@@ -182,7 +182,7 @@ export default function PersistentDrawerRight() {
           {mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
           {mainContent === 'Already have an account? Sign in' || mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
           {mainContent === `Don't have an account? Sign Up`|| mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
-          {mainContent === 'CART' ? <Cart /> : ''}
+          {mainContent === 'CART' ? <Cart handleClick={handleClick}/> : ''}
           {mainContent === 'Boots' ? <ProductsContent /> : ''}
           {mainContent === 'Clothes' ? <ProductsContent /> : ''}
           {mainContent === 'Balls' ? <ProductsContent /> : ''}
@@ -190,6 +190,7 @@ export default function PersistentDrawerRight() {
           {mainContent === 'Account' ? 'Account Content' : ''}
           {mainContent === 'About Us' ? 'About Us Content' : ''}
           {mainContent === 'Contact' ? 'Contact Content' : ''}
+          {mainContent === 'PROCEED' ? <Checkout /> : ''}
 
       </main>
       <Drawer
