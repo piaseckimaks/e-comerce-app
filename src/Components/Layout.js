@@ -18,8 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import SignIn from './Content/SignIn';
 import SignUp from './Content/SignUp';
 import MainContent from './Content/MainContent';
-import Cart from './Cart';
-import BootsContent from './Content/BootsContent'
+import Cart from './Cart/Cart';
+import ProductsContent from './Content/ProdutsContent';
+import Checkout from './Checkout/Checkout';
 
 
 const drawerWidth = 200;
@@ -101,8 +102,11 @@ export default function PersistentDrawerRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [mainContent, setMainContent] = React.useState('FOOTBALL WORLD');
+  const [product, setProduct] = React.useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+
+  
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -142,7 +146,7 @@ export default function PersistentDrawerRight() {
           </Typography>
           
           <List className={classes.appBarBtns}>
-            {['Sign in', 'Sign up'].map((el, index) => (
+            {['Sign in', 'Sign up','Cart'].map((el, index) => (
               <Button 
                 aria-controls="customized-menu" 
                 aria-haspopup="true"
@@ -154,15 +158,6 @@ export default function PersistentDrawerRight() {
                 {el}
               </Button>
             ))}
-            <Button
-              aria-controls="customized-menu"
-              aria-haspopup="true"
-              variant="contained"
-              color="primary"
-              onClick={handleClickCart}
-            >
-              Cart
-            </Button>
           </List>
 
 
@@ -183,15 +178,15 @@ export default function PersistentDrawerRight() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Cart handleClose={handleClose} anchorEl={anchorEl}/>
 
           {mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
           {mainContent === 'Already have an account? Sign in' || mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
           {mainContent === `Don't have an account? Sign Up`|| mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
-          {mainContent === 'Boots' ? <BootsContent /> : ''}
-          {mainContent === 'Clothes' ? 'Clothes Content' : ''}
-          {mainContent === 'Balls' ? 'Balls Content' : ''}
-          {mainContent === 'Equipment' ? 'Equipment Content' : ''}
+          {mainContent === 'CART' ? <Cart /> : ''}
+          {mainContent === 'Boots' ? <ProductsContent /> : ''}
+          {mainContent === 'Clothes' ? <ProductsContent /> : ''}
+          {mainContent === 'Balls' ? <ProductsContent /> : ''}
+          {mainContent === 'Equipment' ? <ProductsContent /> : ''}
           {mainContent === 'Account' ? 'Account Content' : ''}
           {mainContent === 'About Us' ? 'About Us Content' : ''}
           {mainContent === 'Contact' ? 'Contact Content' : ''}
