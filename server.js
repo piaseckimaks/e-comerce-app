@@ -17,14 +17,16 @@ app.use(bodyParser.json());
 
 //app.use(express.static("build"));
 
-app.get('/boots',(req,res)=>{
-    db.all(`SELECT * FROM boots`,(err, rows)=>{
+app.get('/',(req,res)=>{
+    const table = req.query.product;
+    db.all(`SELECT * FROM ${table}`,(err, rows)=>{
         if(err){
             console.log(err);
         }else{
-            res.send({boots: rows});
+            res.send({rows});
         }
     });
 });
+
 
 app.listen(PORT);

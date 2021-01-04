@@ -39,13 +39,16 @@ export default function CartItem(props) {
     setQuantity(quantity+1);
     setPrice(price+props.price);
     console.log(props.uniqueId);
-    props.handleChangePriceAndQuantity(props.uniqueId,props.price,quantity);
+    props.handleChangePriceAndQuantity(props.uniqueId,props.price,quantity,"add");
   }
 
   const handleRemoveClick = () =>{
-    setQuantity(quantity-1);
-    setPrice(price-props.price);
-  }
+    if(quantity>0)
+    {
+      setQuantity(quantity-1);
+      setPrice(price-props.price);
+      props.handleChangePriceAndQuantity(props.uniqueId,props.price,quantity,"substract");}
+    }
 
   return (
     <Card className={classes.root}>

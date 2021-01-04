@@ -8,7 +8,7 @@ const cartContent = [
     id: 1,
     name: 'product name',
     quantity: 1,
-    price: 200,
+    price: 55,
     pic: 'https://thumblr.uniid.it/product/187030/a2631110399b.jpg'
   },
   {
@@ -22,7 +22,7 @@ const cartContent = [
     id: 3,
     name: 'product name',
     quantity: 1,
-    price: 200,
+    price: 150,
     pic: 'https://thumblr.uniid.it/product/187030/a2631110399b.jpg'
   },
 
@@ -40,13 +40,14 @@ export default function Cart(props) {
     setCartElements(cartContent);
   }, [])
   
-  const handleChangePriceAndQuantity = (id,price,quantity) => {
-    setTotalPrice(totalPrice + price);
+  const handleChangePriceAndQuantity = (id,price,quantity,flag) => {
+    if(flag==="add") setTotalPrice(totalPrice + price)
+    else setTotalPrice(totalPrice - price)
     setCartElements(cartElements.map(el=>{
       if(el.id===id){
-        el.price = price;
-        el.quantity = quantity;
-        return el;
+          el.price = price;
+          el.quantity = quantity;
+          return el;
       }else{
         return el;
       }

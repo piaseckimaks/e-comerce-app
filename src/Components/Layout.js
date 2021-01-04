@@ -97,12 +97,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function PersistentDrawerRight() {
+export default function Layout(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [mainContent, setMainContent] = React.useState('FOOTBALL WORLD');
-  const [product, setProduct] = React.useState([]);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
 
@@ -117,8 +115,7 @@ export default function PersistentDrawerRight() {
   };
 
   const handleClick = e => {
-    setMainContent(e.target.innerText);
-    console.log(e.target.innerText);
+    props.handleContent(e.target.innerText);
     setOpen(false);
   };
 
@@ -179,18 +176,18 @@ export default function PersistentDrawerRight() {
       >
         <div className={classes.drawerHeader} />
 
-          {mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
-          {mainContent === 'Already have an account? Sign in' || mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
-          {mainContent === `Don't have an account? Sign Up`|| mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
-          {mainContent === 'CART' ? <Cart handleClick={handleClick}/> : ''}
-          {mainContent === 'Boots' ? <ProductsContent /> : ''}
-          {mainContent === 'Clothes' ? <ProductsContent /> : ''}
-          {mainContent === 'Balls' ? <ProductsContent /> : ''}
-          {mainContent === 'Equipment' ? <ProductsContent /> : ''}
-          {mainContent === 'Account' ? 'Account Content' : ''}
-          {mainContent === 'About Us' ? 'About Us Content' : ''}
-          {mainContent === 'Contact' ? 'Contact Content' : ''}
-          {mainContent === 'PROCEED' ? <Checkout /> : ''}
+          {props.mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
+          {props.mainContent === 'Already have an account? Sign in' || props.mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
+          {props.mainContent === `Don't have an account? Sign Up`|| props.mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
+          {props.mainContent === 'CART' ? <Cart handleClick={handleClick}/> : ''}
+          {props.mainContent === 'Boots' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
+          {props.mainContent === 'Clothes' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
+          {props.mainContent === 'Balls' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
+          {props.mainContent === 'Equipment' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
+          {props.mainContent === 'Account' ? 'Account Content' : ''}
+          {props.mainContent === 'About Us' ? 'About Us Content' : ''}
+          {props.mainContent === 'Contact' ? 'Contact Content' : ''}
+          {props.mainContent === 'PROCEED' ? <Checkout /> : ''}
 
       </main>
       <Drawer
