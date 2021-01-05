@@ -21,90 +21,17 @@ import MainContent from './Content/MainContent';
 import Cart from './Cart/Cart';
 import ProductsContent from './Content/ProdutsContent';
 import Checkout from './Checkout/Checkout';
+import layoutStyles from './Styles/LayoutStyles';
 
 
-const drawerWidth = 200;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: drawerWidth,
-  },
-  title: {
-    flexGrow: 1,
-    fontVariant: 'small-caps',
-    textTransform: 'uppercase',
-    fontFamily: `'Fredoka One', cursive`
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
-  },
-  content: {
-    padding: theme.spacing(1),
-    width: '100%',
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginRight: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: 0,
-  },
-  listItemText: {
-    textAlign: 'center',
-  },
-  logo: {
-    cursor: 'pointer',
-  },
-  appBarBtns: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '15vw',
-  }
-}));
 
 
 export default function Layout(props) {
-  const classes = useStyles();
+  const classes = layoutStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-
-  
 
   const handleDrawerOpen = () => {
     setOpen(true);

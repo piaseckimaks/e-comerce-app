@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -10,25 +9,10 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '25vh',
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-  title: {
-      textAlign: 'center'
-  },
-  brands: {
-      fontSize: '2px'
-  }
-}));
+import filterStyles from "../Styles/FilterStyles";
 
 export default function NestedList() {
-    const classes = useStyles();
+    const classes = filterStyles();
     const [brand, setBrand] = React.useState(false);
     const [model, setModel] = React.useState(false);
     const [size, setSize] = React.useState(false);
