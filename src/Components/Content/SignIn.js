@@ -43,9 +43,7 @@ export default function SignIn(props) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} 
-              onSubmit='localhost:5555'
-        >
+        <form className={classes.form} action="http://localhost:3000/signin" method="GET">
           <TextField
             variant="outlined"
             margin="normal"

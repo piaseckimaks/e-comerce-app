@@ -29,4 +29,22 @@ app.get('/products',(req,res)=>{
     });
 });
 
+app.get('/signin',(req,res)=>{
+    const email = req.query.email;
+    const password = req.query.password;
+
+    db.get(`SELECT * FROM customers WHERE email='${email}' AND password='${password}'`,(err, row)=>{
+        if(err){
+            console.log(err);
+        }else{
+            if(!row) 
+            {
+                console.log('No user with those credententials!')
+                res.send('User not found');
+            }
+            else res.send({row});
+        }
+    });
+});
+
 app.listen(PORT);
