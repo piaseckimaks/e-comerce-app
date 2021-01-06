@@ -46,6 +46,11 @@ export default function Layout(props) {
     setOpen(false);
   };
 
+  const handleClickWithoutFetch = e =>
+  {
+    props.contentWithoutFetch(e.target.innerText);
+  };
+
   const handleClickCart = e => {
     setAnchorEl(e.currentTarget);
   };
@@ -66,7 +71,7 @@ export default function Layout(props) {
       >
         <Toolbar>
           <Typography  variant="h2" className={classes.title}>
-            <span className={classes.logo} onClick={handleClick}>football world</span>
+            <span className={classes.logo} onClick={handleClickWithoutFetch}>football world</span>
           </Typography>
           
           <List className={classes.appBarBtns}>
@@ -76,7 +81,7 @@ export default function Layout(props) {
                 aria-haspopup="true"
                 variant="contained"
                 color="primary"
-                onClick={handleClick}
+                onClick={handleClickWithoutFetch}
                 key={index}
               >
                 {el}
