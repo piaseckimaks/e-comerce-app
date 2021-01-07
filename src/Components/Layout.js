@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import {  useTheme } from '@material-ui/core/styles';
+import {Switch, Button} from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -31,6 +31,13 @@ export default function Layout(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [logedIn, setLogedIn] = React.useState(false);
+
+  const handleChange = () =>
+  {
+    if(logedIn) setLogedIn(false);
+    else setLogedIn(true);
+  }
 
 
   const handleDrawerOpen = () => {
@@ -44,6 +51,11 @@ export default function Layout(props) {
   const handleClick = e => {
     props.handleContent(e.target.innerText);
     setOpen(false);
+  };
+
+  const handleClickWithoutFetch = e =>
+  {
+    props.contentWithoutFetch(e.target.innerText);
   };
 
   const handleClickCart = e => {
@@ -66,24 +78,43 @@ export default function Layout(props) {
       >
         <Toolbar>
           <Typography  variant="h2" className={classes.title}>
-            <span className={classes.logo} onClick={handleClick}>football world</span>
+            <span className={classes.logo} onClick={handleClickWithoutFetch}>football world</span>
           </Typography>
-          
-          <List className={classes.appBarBtns}>
-            {['Sign in', 'Sign up','Cart'].map((el, index) => (
-              <Button 
+          <Switch
+            checked={logedIn}
+            onChange={handleChange}
+           
+            name="checkedB"
+            inputProps={{ 'aria-label': 'primary checkbox' }}
+          />
+              {logedIn ? '' : (<Button 
                 aria-controls="customized-menu" 
                 aria-haspopup="true"
                 variant="contained"
                 color="primary"
-                onClick={handleClick}
-                key={index}
+                onClick={handleClickWithoutFetch}
               >
-                {el}
-              </Button>
-            ))}
-          </List>
+                Sign in
+              </Button>)}
+              {logedIn ? '' : (<Button 
+                aria-controls="customized-menu" 
+                aria-haspopup="true"
+                variant="contained"
+                color="primary"
+                onClick={handleClickWithoutFetch}
 
+              >
+                Sign up
+              </Button>)}
+              <Button 
+                    aria-controls="customized-menu" 
+                    aria-haspopup="true"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleClickWithoutFetch}
+                  >
+                    Cart
+              </Button>
 
           <IconButton
             color="inherit"
@@ -104,6 +135,7 @@ export default function Layout(props) {
         <div className={classes.drawerHeader} />
 
           {props.mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
+          
           {props.mainContent === 'Already have an account? Sign in' || props.mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
           {props.mainContent === `Don't have an account? Sign Up`|| props.mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}
           {props.mainContent === 'CART' ? <Cart handleClick={handleClick}/> : ''}

@@ -3,14 +3,19 @@ import Layout from './Layout';
 import DataFetch from '../util/DataFetch'
 
 function App() {
-  const [toFetch, setToFetch] = React.useState('FOOTBALL WORLD');
+  const [mainContent, setMainContent] = React.useState('FOOTBALL WORLD');
   const [fetchResult, setFetchResult] = React.useState([]);
 
-  const handleContent = (contentName) => {
+  const handleContent = (contentName) => 
+  {
     DataFetch.getProducts(contentName).then(res=>setFetchResult(res));
-    setToFetch(contentName);
+    setMainContent(contentName);
   }
-
+  
+  const contentWithoutFetch = (contentName) =>
+  {
+    setMainContent(contentName);
+  }
 
 
   return (
@@ -18,7 +23,8 @@ function App() {
       <Layout 
         handleContent={handleContent}
         fetchResult={fetchResult}
-        mainContent={toFetch}
+        mainContent={mainContent}
+        contentWithoutFetch={contentWithoutFetch}
       />
     </div>
   );

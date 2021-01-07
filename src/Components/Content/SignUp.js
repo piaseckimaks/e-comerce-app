@@ -42,9 +42,8 @@ export default function SignUp(props) {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+        
+          <form className={classes.form} action="http://localhost:3000/signup" method="POST">
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -55,8 +54,6 @@ export default function SignUp(props) {
                 label="First Name"
                 autoFocus
               />
-            </Grid>
-            <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 required
@@ -66,8 +63,6 @@ export default function SignUp(props) {
                 name="lastName"
                 autoComplete="lname"
               />
-            </Grid>
-            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -77,8 +72,42 @@ export default function SignUp(props) {
                 name="email"
                 autoComplete="email"
               />
-            </Grid>
-            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="phone"
+                label="Phone Number"
+                name="phone"
+                autoComplete="phone"
+              />
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="address"
+                label="Address"
+                name="address"
+                autoComplete="address"
+              />
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="city"
+                label="City"
+                name="city"
+                autoComplete="city"
+              />
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="country"
+                label="Country"
+                name="country"
+                autoComplete="country"
+              />
               <TextField
                 variant="outlined"
                 required
@@ -89,14 +118,10 @@ export default function SignUp(props) {
                 id="password"
                 autoComplete="current-password"
               />
-            </Grid>
-            <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
-            </Grid>
-          </Grid>
           <Button
             type="submit"
             fullWidth
@@ -106,6 +131,7 @@ export default function SignUp(props) {
           >
             Sign Up
           </Button>
+          </form>
           <Grid container justify="flex-end">
             <Grid item>
               <Link className={classes.link} onClick={handleClick} variant="body2">
@@ -113,7 +139,7 @@ export default function SignUp(props) {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        
       </div>
       <Box mt={5}>
         <Copyright />
