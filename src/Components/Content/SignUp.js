@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import {Avatar, Divider} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -33,8 +33,7 @@ export default function SignUp(props) {
   const handleClick = e => props.handleClick(e);
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -45,6 +44,7 @@ export default function SignUp(props) {
         
           <form className={classes.form} action="http://localhost:3000/signup" method="POST">
               <TextField
+                className={classes.input}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -55,6 +55,7 @@ export default function SignUp(props) {
                 autoFocus
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -64,6 +65,7 @@ export default function SignUp(props) {
                 autoComplete="lname"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -73,6 +75,7 @@ export default function SignUp(props) {
                 autoComplete="email"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -82,6 +85,7 @@ export default function SignUp(props) {
                 autoComplete="phone"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -91,6 +95,7 @@ export default function SignUp(props) {
                 autoComplete="address"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -100,6 +105,7 @@ export default function SignUp(props) {
                 autoComplete="city"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -109,6 +115,7 @@ export default function SignUp(props) {
                 autoComplete="country"
               />
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -139,11 +146,10 @@ export default function SignUp(props) {
               </Link>
             </Grid>
           </Grid>
-        
-      </div>
-      <Box mt={5}>
+          <Box mt={5}>
         <Copyright />
       </Box>
-    </Container>
+      </div>
+      
   );
 }

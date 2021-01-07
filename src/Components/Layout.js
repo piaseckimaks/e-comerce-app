@@ -1,25 +1,16 @@
 import React from 'react';
 import clsx from 'clsx';
 import {  useTheme } from '@material-ui/core/styles';
-import {Switch, Button} from '@material-ui/core';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import {Switch, Button, Drawer, AppBar,Toolbar,CssBaseline,List,Typography,Divider,IconButton,ListItem,ListItemText} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import SignIn from './Content/SignIn';
 import SignUp from './Content/SignUp';
 import MainContent from './Content/MainContent';
 import Cart from './Cart/Cart';
 import ProductsContent from './Content/ProdutsContent';
+import AccountContent from './Content/AccountContent/AccountContent';
 import Checkout from './Checkout/Checkout';
 import layoutStyles from './Styles/LayoutStyles';
 
@@ -143,7 +134,7 @@ export default function Layout(props) {
           {props.mainContent === 'Clothes' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
           {props.mainContent === 'Balls' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
           {props.mainContent === 'Equipment' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
-          {props.mainContent === 'Account' ? 'Account Content' : ''}
+          {props.mainContent === 'Account' ? <AccountContent /> : ''}
           {props.mainContent === 'About Us' ? 'About Us Content' : ''}
           {props.mainContent === 'Contact' ? 'Contact Content' : ''}
           {props.mainContent === 'PROCEED' ? <Checkout /> : ''}
