@@ -29,7 +29,7 @@ app.get('/products',(req,res)=>{
     });
 });
 
-app.get('/signin',(req,res)=>{
+app.post('/signin',(req,res)=>{
     const email = req.query.email;
     const password = req.query.password;
 
@@ -46,5 +46,31 @@ app.get('/signin',(req,res)=>{
         }
     });
 });
+
+app.get('/signup',(req,res)=>
+{
+    const firstName = req.query.firstName;
+    const lastName = req.query.lastName;
+    const email = req.query.email;
+    const phone = req.query.phone;
+    const address = req.query.address+' '+req.query.city+' '+req.query.country;
+    const password = req.query.password;
+
+    console.log({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        address: address,
+        password: password
+    })
+
+    db.run(
+        `INSERT INTO customers (name,last_name,email,phone_number,address,password)
+         VALUES ('${firstName}','${lastName}','${email}','${phone}','${address}','${password}')`,
+         
+         err => err ? console.log(err) : res.send(`User ${email} succesfully added!`)
+    )
+})
 
 app.listen(PORT);
