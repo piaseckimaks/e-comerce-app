@@ -5,6 +5,8 @@ import {AppBar,Tabs,Tab,Typography,Box} from '@material-ui/core';
 import MyDetails from './MyDetails';
 import MyAddress from './MyAddress';
 import MyCards from './MyCards';
+import OrderHistory from './OrdersHistory';
+import MyPreferences from './MyPreferences';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -77,13 +79,10 @@ export default function AccountContent() {
         <MyCards />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+        <OrderHistory />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
+        <MyPreferences />
       </TabPanel>
     </div>
   );

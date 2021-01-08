@@ -24,7 +24,7 @@ const layoutStyles = makeStyles((theme) => ({
       flexGrow: 1,
       fontVariant: 'small-caps',
       textTransform: 'uppercase',
-      fontFamily: `'Fredoka One', cursive`
+      fontWeight: 'bold'
     },
     hide: {
       display: 'none',
