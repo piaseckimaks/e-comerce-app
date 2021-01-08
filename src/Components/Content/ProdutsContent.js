@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Card, CardActionArea, CardMedia, CardContent, Typography} from '@material-ui/core';
 import ContentFilter from './ContentFilter';
-import fetchData from '../../util/DataFetch';
+//import fetchData from '../../util/DataFetch';
 import productsStyles from '../Styles/ProductsStyles';
 
 

@@ -13,6 +13,7 @@ import ProductsContent from './Content/ProdutsContent';
 import AccountContent from './Content/AccountContent/AccountContent';
 import Checkout from './Checkout/Checkout';
 import layoutStyles from './Styles/LayoutStyles';
+import AboutUs from './Content/AboutUs';
 
 
 
@@ -21,7 +22,6 @@ export default function Layout(props) {
   const classes = layoutStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const [logedIn, setLogedIn] = React.useState(false);
 
   const handleChange = () =>
@@ -47,14 +47,6 @@ export default function Layout(props) {
   const handleClickWithoutFetch = e =>
   {
     props.contentWithoutFetch(e.target.innerText);
-  };
-
-  const handleClickCart = e => {
-    setAnchorEl(e.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
 
@@ -135,7 +127,7 @@ export default function Layout(props) {
           {props.mainContent === 'Balls' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
           {props.mainContent === 'Equipment' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
           {props.mainContent === 'Account' ? <AccountContent /> : ''}
-          {props.mainContent === 'About Us' ? 'About Us Content' : ''}
+          {props.mainContent === 'About Us' ? <AboutUs /> : ''}
           {props.mainContent === 'Contact' ? 'Contact Content' : ''}
           {props.mainContent === 'PROCEED' ? <Checkout /> : ''}
 
