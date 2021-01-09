@@ -16,8 +16,9 @@ const mainStyles = makeStyles({
         margin: '0 auto'
     },
     mainPic: {
-        height: '75vh',
-        margin: '6vh 0'
+        height: '90vh',
+        margin: '0 0 10vh 0',
+        overflow: 'hidden'
     },
     title: {
         fontSize: '7.5vh',

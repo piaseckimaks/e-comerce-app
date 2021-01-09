@@ -7,7 +7,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import SignIn from './Content/SignIn';
 import SignUp from './Content/SignUp';
-import MainContent from './Content/MainContent';
+import MainContent from './Content/MainContent/MainContent';
 import Cart from './Cart/Cart';
 import ProductsContent from './Content/ProdutsContent';
 import AccountContent from './Content/AccountContent/AccountContent';
@@ -128,7 +128,6 @@ export default function Layout(props) {
           {props.mainContent === 'Equipment' ? <ProductsContent fetchResult={props.fetchResult}/> : ''}
           {props.mainContent === 'Account' ? <AccountContent /> : ''}
           {props.mainContent === 'About Us' ? <AboutUs /> : ''}
-          {props.mainContent === 'Contact' ? 'Contact Content' : ''}
           {props.mainContent === 'PROCEED' ? <Checkout /> : ''}
 
       </main>
@@ -156,7 +155,7 @@ export default function Layout(props) {
         </List>
         <Divider />
         <List>
-          {['Account', 'About Us', 'Contact'].map((text, index) => (
+          {['Account', 'About Us'].map((text, index) => (
             <ListItem onClick={handleClick} button key={text}>
               <ListItemText className={classes.listItemText} primary={text} />
             </ListItem>

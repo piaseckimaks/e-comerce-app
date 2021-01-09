@@ -24,7 +24,6 @@ const layoutStyles = makeStyles((theme) => ({
       flexGrow: 1,
       fontVariant: 'small-caps',
       textTransform: 'uppercase',
-      fontWeight: 'bold'
     },
     hide: {
       display: 'none',

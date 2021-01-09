@@ -47,7 +47,7 @@ app.post('/signin',(req,res)=>{
     });
 });
 
-app.get('/signup',(req,res)=>
+app.post('/signup',(req,res)=>
 {
     const firstName = req.query.firstName;
     const lastName = req.query.lastName;
