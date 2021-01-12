@@ -9,26 +9,27 @@ export default function MainContent() {
     const classes = mainStyles();
 
     return (
-        <div>
+        <div className={classes.container}>
             <Box className={classes.mainPic}>
                 <SlideShow />
             </Box>
             <Divider />
-            <Typography className={classes.title}>
+            <Typography className={classes.productTitle}>
                 Best shoes
             </Typography>
+            <Divider />
             <Box className={classes.flex}>
                 {cardContent.map(el=>{
                     return <Card key={el.id} className={classes.root}>
-                                  <CardActionArea className={classes.content}>
+                                <CardActionArea className={classes.content}>
                                     <CardMedia
-                                    component="img"
-                                    alt="Contemplative Reptile"
-                                    height="210"
-                                    image={el.image_url}
-                                    title={`${el.brand} ${el.model}`}
+                                        component="img"
+                                        alt="Contemplative Reptile"
+                                        height="210"
+                                        image={el.image_url}
+                                        title={`${el.brand} ${el.model}`}
                                     />
-                                    <CardContent >
+                                    <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.header}>
                                         {`${el.brand} ${el.model}`}
                                     </Typography>
@@ -38,15 +39,16 @@ export default function MainContent() {
                                     </CardContent>
                                 </CardActionArea>
                                 <Typography className={classes.price}>
-                                {el.price}$
+                                    {el.price}$
                                 </Typography>
                             </Card>
                 })}
             </Box>
             <Divider />
-            <Typography className={classes.title}>
+            <Typography className={classes.productTitle}>
                 Best clothes
             </Typography>
+            <Divider />
             <Box className={classes.flex}>
                 {cardContent.map(el=>{
                     return <Card key={el.id} className={classes.root}>
@@ -58,7 +60,7 @@ export default function MainContent() {
                                     image={el.image_url}
                                     title={`${el.brand} ${el.model}`}
                                     />
-                                    <CardContent>
+                                    <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.header}>
                                         {`${el.brand} ${el.model}`}
                                     </Typography>
@@ -74,9 +76,10 @@ export default function MainContent() {
                 })}
             </Box>
             <Divider />
-            <Typography className={classes.title}>
+            <Typography className={classes.productTitle}>
                 Best balls
             </Typography>
+            <Divider />
             <Box className={classes.flex}>
                 {cardContent.map(el=>{
                     return <Card key={el.id} className={classes.root}>
@@ -88,7 +91,7 @@ export default function MainContent() {
                                     image={el.image_url}
                                     title={`${el.brand} ${el.model}`}
                                     />
-                                    <CardContent>
+                                    <CardContent className={classes.cardContent}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.header}>
                                         {`${el.brand} ${el.model}`}
                                     </Typography>
@@ -104,9 +107,10 @@ export default function MainContent() {
                 })}
             </Box>
             <Divider />
-            <Typography className={classes.title}>
+            <Typography className={classes.productTitle}>
                 Best equipment
             </Typography>
+            <Divider />
             <Box className={classes.flex}>
                 {cardContent.map(el=>{
                     return <Card key={el.id} className={classes.root}>
@@ -118,16 +122,16 @@ export default function MainContent() {
                       image={el.image_url}
                       title={`${el.brand} ${el.model}`}
                       />
-                      <CardContent>
+                      <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2" className={classes.header}>
                           {`${el.brand} ${el.model}`}
                       </Typography>
-                      <Typography variant="body2" color="textSecondary" component="p" className={classes.description}>
+                      <Typography variant="body2" component="p" className={classes.description}>
                           {el.description}
                       </Typography>
                       </CardContent>
                   </CardActionArea>
-                  <Typography className={classes.price}>
+                  <Typography className={classes.price} >
                   {el.price}$
                   </Typography>
               </Card>

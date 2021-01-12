@@ -10,6 +10,10 @@
   /* Hide the images by default */
   .mySlides {
     display: none;
+    height: 78vh;
+  }
+  .mySlides img{
+    height: 100%;
   }
   
   /* Add a pointer when hovering over the thumbnail images */
@@ -62,7 +66,8 @@
     padding: 2px 16px;
     color: white;
   }
-  
+
+
   .row:after {
     content: "";
     display: table;
@@ -72,12 +77,15 @@
   /* Six columns side by side */
   .column {
     float: left;
-    width: 16.66%;
+    width: 25%;
+  }
+  .column img{
+    height: 100%;
   }
   
   /* Add a transparency effect for thumnbail images */
   .demo {
-    opacity: 0.6;
+    opacity: 0.4;
   }
   
   .active,

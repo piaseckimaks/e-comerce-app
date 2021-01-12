@@ -1,6 +1,8 @@
 import {makeStyles} from '@material-ui/core';
 
 const mainStyles = makeStyles({
+    container: {
+    },
     flex: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -16,8 +18,8 @@ const mainStyles = makeStyles({
         margin: '0 auto'
     },
     mainPic: {
-        height: '90vh',
-        margin: '0 0 10vh 0',
+        height: '92vh',
+        margin: '0 0 5vh 0',
         overflow: 'hidden'
     },
     title: {
@@ -28,21 +30,39 @@ const mainStyles = makeStyles({
         textTransform: 'uppercase',
     },
     price: {
-        fontSize: '3vh',
+        fontSize: '2.5vh',
         textAlign: 'center',
         margin: '0 auto',
-        height: 35
+        height: 35,
+        color: 'whitesmoke',
+        backgroundColor: '#3F51B5',
+        fontWeight: 300
     },
     header: {
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        fontWeight: 300
     },
     description: {
         minHeight: 40,
         maxHeight: 40,
         overflow: 'hidden',
-        textOverflow: 'ellipsis'
+        textOverflow: 'ellipsis',
+        color: 'whitesmoke',
+        fontWeight: 300
+    },
+    productTitle: {
+        color: 'whitesmoke',
+        fontSize: '3vh',
+        backgroundColor: '#3F51B5',
+        fontWeight: 300,
+        padding: '0 0.5vw'
+    },
+    cardContent: {
+        backgroundColor: '#3F51B5',
+        color: 'whitesmoke',
+        opacity: '0.9'
     }
 });
 
