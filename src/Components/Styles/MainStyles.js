@@ -54,10 +54,10 @@ const mainStyles = makeStyles({
     },
     productTitle: {
         color: 'whitesmoke',
-        fontSize: '3vh',
+        fontSize: '4vh',
         backgroundColor: '#3F51B5',
         fontWeight: 300,
-        padding: '0 0.5vw'
+        padding: '0 0.25vw'
     },
     cardContent: {
         backgroundColor: '#3F51B5',

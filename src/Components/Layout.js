@@ -40,6 +40,7 @@ export default function Layout(props) {
   };
 
   const handleClick = e => {
+    console.log(e.target.innerText);
     props.handleContent(e.target.innerText);
     setOpen(false);
   };
@@ -49,6 +50,10 @@ export default function Layout(props) {
     props.contentWithoutFetch(e.target.innerText);
   };
 
+  const handleClickProductCard = title =>
+  {
+    props.handleContent(title);
+  }
 
   return (
     <div className={classes.root}>
@@ -73,28 +78,24 @@ export default function Layout(props) {
               {logedIn ? '' : (<Button 
                 aria-controls="customized-menu" 
                 aria-haspopup="true"
-                variant="contained"
-                color="primary"
                 onClick={handleClickWithoutFetch}
+                style={{color: 'white',fontWeight: 300}}
               >
                 Sign in
               </Button>)}
               {logedIn ? '' : (<Button 
                 aria-controls="customized-menu" 
                 aria-haspopup="true"
-                variant="contained"
-                color="primary"
                 onClick={handleClickWithoutFetch}
-
+                style={{color: 'white',fontWeight: 300}}
               >
                 Sign up
               </Button>)}
               <Button 
                     aria-controls="customized-menu" 
                     aria-haspopup="true"
-                    variant="contained"
-                    color="primary"
                     onClick={handleClickWithoutFetch}
+                    style={{color: 'white',fontWeight: 300}}
                   >
                     Cart
               </Button>
@@ -117,7 +118,7 @@ export default function Layout(props) {
       >
         <div className={classes.drawerHeader} />
 
-          {props.mainContent === 'FOOTBALL WORLD' ? <MainContent /> : ''}
+          {props.mainContent === 'FOOTBALL WORLD' ? <MainContent handleClickProduct={handleClickProductCard}/> : ''}
           
           {props.mainContent === 'Already have an account? Sign in' || props.mainContent === 'SIGN IN' ? <SignIn handleClick={handleClick}/> : ''}
           {props.mainContent === `Don't have an account? Sign Up`|| props.mainContent === 'SIGN UP' ? <SignUp handleClick={handleClick}/> : ''}

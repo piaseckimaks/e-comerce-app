@@ -61,6 +61,7 @@ const layoutStyles = makeStyles((theme) => ({
     },
     listItemText: {
       textAlign: 'center',
+      fontWeight: 300
     },
     logo: {
       cursor: 'pointer',
