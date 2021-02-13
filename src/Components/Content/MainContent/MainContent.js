@@ -13,14 +13,6 @@ export default function MainContent(props) {
     const [thirdBox,setThirdBox] = useState([]); 
     const [fourthBox,setFourthBox] = useState([]); 
 
-    useEffect(() => {
-        DataFetch.getProducts('Boots').then(res=> setFirstBox(res));
-        DataFetch.getProducts('Clothes').then(res=> setSecondBox(res));
-        DataFetch.getProducts('Balls').then(res=> setThirdBox(res));
-        DataFetch.getProducts('Equipment').then(res=> setFourthBox(res));
-
-        console.log(firstBox);
-    }, [])
 
     const handleClick = () =>
     {

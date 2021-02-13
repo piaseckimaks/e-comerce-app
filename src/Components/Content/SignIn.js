@@ -31,7 +31,7 @@ function Copyright() {
 export default function SignIn(props) {
   const classes = signInStyles();
 
-  const handleClick = e => props.handleClick(e);
+  const handleClick = e => props.handleClick(e.target.parentElement.parentElement.id);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -86,7 +86,7 @@ export default function SignIn(props) {
               </Link>
             </Grid>
             <Grid item>
-              <Link className={classes.link} onClick={handleClick} variant="body2">
+              <Link className={classes.link} id={3} onClick={handleClick} variant="body2">
                 Don't have an account? Sign Up
               </Link>
             </Grid>

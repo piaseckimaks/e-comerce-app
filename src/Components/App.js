@@ -9,10 +9,10 @@ import Cart from './Cart/Cart';
 import ProductsContent from './Content/ProdutsContent';
 import AccountContent from './Content/AccountContent/AccountContent';
 import Checkout from './Checkout/Checkout';
-import layoutStyles from './Styles/LayoutStyles';
+import layoutStyles from '../Components/Styles/LayoutStyles';
 import AboutUs from './Content/AboutUs';
 import DrawerMenu from './Navigation/DrawerMenu/DrawerMenu';
-import NavBar from './Navigation/NavBar';
+import NavBar from './Navigation/NavBar/NavBar';
 
 function App() {
   const classes = layoutStyles();
@@ -37,7 +37,7 @@ function App() {
 
 
   //Handling navigation buttons
-  const handleClickButtons = (id) => {setMain(id); console.log(main); setOpen(false)};
+  const handleClickButtons = (id) => {setMain(id); console.log(id); setOpen(false)};
 
   //DrawerMenu handling
   const handleDrawerOpen = () => {

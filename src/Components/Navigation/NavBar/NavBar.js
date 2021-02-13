@@ -2,9 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import {Switch, Button, AppBar,IconButton,Toolbar,Typography} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import layoutStyles from '../Styles/LayoutStyles';
+import layoutStyles from '../../Styles/LayoutStyles';
+import AccountBtn from './AccountBtn';
+import CartBtn from './CartBtn';
 
 export default function NavBar(props) {
     const classes = layoutStyles();
@@ -13,7 +13,7 @@ export default function NavBar(props) {
 
     const handleClickTitle = e => props.handleClickButtons(e.target.id);
 
-    const handleClickButtons = e => props.handleClickButtons(e.target.parentElement.parentElement.id);
+    const handleClickButtons = id => props.handleClickButtons(id);
 
     return (
         <AppBar
@@ -26,27 +26,10 @@ export default function NavBar(props) {
           <Typography  variant="h2" className={classes.title}>
             <span className={classes.logo} id="1" onClick={handleClickTitle}>{props.title}</span>
           </Typography>
-            <IconButton
-              aria-controls="customized-menu" 
-              aria-haspopup="true"
-              id={2}
-              onClick={handleClickButtons}
-              style={{color: 'white',fontWeight: 300}}
-            >
-              <AccountBoxIcon />
-            </IconButton>
+          
+          <AccountBtn id={2} handleClickButtons={handleClickButtons}/>
 
-            <IconButton
-              aria-controls="customized-menu" 
-              aria-haspopup="true"
-              id={4}
-              onClick={handleClickButtons}
-              style={{color: 'white',fontWeight: 300}}
-            >
-              <ShoppingCartIcon />
-            </IconButton>
-
-
+          <CartBtn id={4} handleClickButtons={handleClickButtons}/>
 
           <IconButton
             color="inherit"

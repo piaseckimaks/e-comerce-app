@@ -47,11 +47,11 @@ export default function DrawerMenu(props) {
         </div>
         <Divider />
         <List>
-          {firstMenu.map(el=> <DrawerButton name={el.name} classes={classes} handleClick={handleClick} id={el.id}/>)}
+          {firstMenu.map(el=> <DrawerButton key={el.id} name={el.name} classes={classes} handleClick={handleClick} id={el.id}/>)}
         </List>
         <Divider />
         <List>
-        {secondMenu.map(el=> <DrawerButton name={el.name} classes={classes} handleClick={handleClick} id={el.id}/>)}
+        {secondMenu.map(el=> <DrawerButton key={el.id} name={el.name} classes={classes} handleClick={handleClick} id={el.id}/>)}
         </List>
       </Drawer>
     )
