@@ -2,7 +2,7 @@ const express = require('express');
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./football_world.db');
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.port || 5000;
 const bodyParser = require('body-parser');
 
 //Allow cross orgin
@@ -15,7 +15,7 @@ app.use((req,res,next)=>{
 
 app.use(bodyParser.json());
 
-app.use(express.static("build"));
+//app.use(express.static("build"));
 
 app.get('/products',(req,res)=>{
     const table = req.query.product;

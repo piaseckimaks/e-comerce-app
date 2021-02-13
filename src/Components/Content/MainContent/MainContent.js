@@ -1,18 +1,17 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import { Box, Card, CardActionArea, CardMedia, Typography, CardContent, Divider} from '@material-ui/core';
 import mainStyles from '../../Styles/MainStyles';
-import SlideShow from './SlideShow';
-import DataFetch from '../../../util/DataFetch'
+import DataFetch from '../../../util/DataFetch';
+
 
 const cardContent = [{"id":1,"brand":"Nike","model":"Phantom GT Elite","size":40,"price":200,"quantity":15,"image_url":"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/2f26e888-8d5b-4cb3-98cd-ea4dc121a77b/phantom-gt-elite-fg-football-boot-2V9lb6.jpg","description":"New model from Nike which is perfect combination of lightweight and comfortable boot"},{"id":2,"brand":"Nike","model":"Mercurial Superfly 7 Elite","size":40,"price":200,"quantity":15,"image_url":"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/c3e1bda0-a667-4a04-bbab-aeb27c52a09b/mercurial-superfly-7-elite-mbappe-rosa-fg-football-boot-m2CTrg.jpg","description":"The best and lightest speed boots on market."},{"id":3,"brand":"Nike","model":"Mercurial Vapor 13 Elite","size":40,"price":200,"quantity":15,"image_url":"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/cfcc19ee-f5cb-4d81-81f0-e7ae6c8cdb95/mercurial-vapor-13-elite-ag-pro-voetbalschoen-jc5LBD.jpg","description":"The best and lightest speed boots on market in classic lower cut."},{"id":4,"brand":"Nike","model":"Tiempo Legend 8 Pro","size":40,"price":200,"quantity":15,"image_url":"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/73bef18b-7e4f-4973-844f-c8e843373379/tiempo-legend-8-pro-sg-voetbalschoen-N4WV8p.jpg","description":"Clasic leathar boots. The most comfortable on market."}];
 
 export default function MainContent(props) {
     const classes = mainStyles();
-    const [firstBox,setFirstBox] = React.useState([]); 
-    const [secondBox,setSecondBox] = React.useState([]); 
-    const [thirdBox,setThirdBox] = React.useState([]); 
-    const [fourthBox,setFourthBox] = React.useState([]); 
-
+    const [firstBox,setFirstBox] = useState([]); 
+    const [secondBox,setSecondBox] = useState([]); 
+    const [thirdBox,setThirdBox] = useState([]); 
+    const [fourthBox,setFourthBox] = useState([]); 
 
     useEffect(() => {
         DataFetch.getProducts('Boots').then(res=> setFirstBox(res));
@@ -23,15 +22,14 @@ export default function MainContent(props) {
         console.log(firstBox);
     }, [])
 
-    const handleClick = e =>
+    const handleClick = () =>
     {
-        props.handleClickProduct(e.target.title);
+        props.handleClickProduct('ProductPage');
     }
 
     return (
         <div className={classes.container}>
             <Box className={classes.mainPic}>
-                <SlideShow />
             </Box>
             <Divider />
             <Typography className={classes.productTitle}>

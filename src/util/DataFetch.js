@@ -1,7 +1,7 @@
 const DataFetch = {
     getProducts(type){
         return fetch(
-            `http://localhost:3000/products?product=${type}`,
+            `http://localhost:5000/products?product=${type}`,
             {
                 headers : 
                 {

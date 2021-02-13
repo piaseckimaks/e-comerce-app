@@ -66,11 +66,6 @@ const layoutStyles = makeStyles((theme) => ({
     logo: {
       cursor: 'pointer',
     },
-    appBarBtns: {
-      display: 'flex',
-      justifyContent: 'center',
-      width: '15vw',
-    }
   }));
 
   export default layoutStyles;
